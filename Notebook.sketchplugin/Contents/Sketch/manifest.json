@@ -1,7 +1,7 @@
 {
   "name" : "Notebook",
   "author" : "Marcos Vidal",
-  "homepage": "http://marcosvid.al/sketch-notebook",
+  "homepage": "https://github.com/adoyle-h/Sketch-Notebook",
   "bundleVersion": 1,
   "identifier" : "com.notebook",
   "version" : 0.1,
@@ -10,6 +10,27 @@
   "compatibleVersion": 3,
 
   "commands" : [
+    {
+      "script" : "notebook.cocoascript",
+      "handler" : "togglePageSidebars",
+      "shortcut" : "",
+      "name" : "Toggle All Sidebars",
+      "identifier" : "toggle_all_sidebars"
+    },
+    {
+      "script" : "notebook.cocoascript",
+      "handler" : "showAll",
+      "shortcut" : "",
+      "name" : "Show All Sidebars",
+      "identifier" : "show_all_sidebars"
+    },
+    {
+      "script" : "notebook.cocoascript",
+      "handler" : "hideAll",
+      "shortcut" : "",
+      "name" : "Hide All Sidebars",
+      "identifier" : "hide_all_sidebars"
+    },
     {
       "script" : "notebook.cocoascript",
       "handler" : "addComment",
@@ -34,6 +55,9 @@
   ],
   "menu" : {
     "items" : [
+      "toggle_all_sidebars",
+      "show_all_sidebars",
+      "hide_all_sidebars",
       "add comment",
       "update comments",
       "toggle current"

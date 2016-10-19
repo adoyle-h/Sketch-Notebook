@@ -18,6 +18,11 @@ function hideAll(context) {
 	com.notebook.togglePageSidebars(hideAll);
 }
 
+function togglePageSidebars(context) {
+	com.notebook.ctx = context;
+	com.notebook.togglePageSidebars(false, false);
+}
+
 function toggleCurrent(context) {
 	com.notebook.ctx = context;
 	com.notebook.toggleSidebar(false,false);
