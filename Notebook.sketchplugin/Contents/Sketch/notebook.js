@@ -1285,13 +1285,14 @@ com.notebook = {
             cabName = cab.name(),
             cabX = cab.frame().x() + cab.frame().width(),
             cabY = cab.frame().y() + cab.frame().height(),
+            cabY0 = cab.frame().y(),
             abs = page.artboards().objectEnumerator();
 
 
         while (a = abs.nextObject()) {
             var x = a.frame().x(),
                 y = a.frame().y();
-            if (a.name() != cabName && x > cabX && y <= cabY) {
+            if (a.name() != cabName && x > cabX && y >= cabY0 && y <= cabY) {
                 var r = a.rect();
                 r.origin.x += offset;
                 a.setRect(r);
