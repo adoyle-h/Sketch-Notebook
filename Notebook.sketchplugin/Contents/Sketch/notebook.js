@@ -1300,7 +1300,9 @@ com.notebook = {
         }
     },
 
-    checkArtboardAndSidebar: function(){
+    checkArtboardAndSidebar: function(opts){
+        opts = opts || {};
+        var noAlert = opts.noAlert;
         var selection = this.ctx.selection,
             doc = this.ctx.document,
             page = [doc currentPage],
@@ -1313,7 +1315,7 @@ com.notebook = {
         var sidebarExists = this.predicate({key : "(name != NULL) && (name == %@)", match : '--nb--sidebar'}, artboard);
 
         if (!sidebarExists){
-            this.showMessage("Dude, this page has no comments! Use 'ctrl + alt + ⌘ + 9' to add a new one");
+            if (!noAlert) this.showMessage("Dude, this page has no comments! Use 'ctrl + alt + ⌘ + 9' to add a new one");
             return false;
         }
 
@@ -1375,7 +1377,7 @@ com.notebook = {
 
     toggleSidebar: function(hideAll,showAll){
         this.debugLog("toggling sidebar");
-        var sbExists = this.checkArtboardAndSidebar();
+        var sbExists = this.checkArtboardAndSidebar({noAlert: true});
         if(!sbExists) return;
 
         var selection = this.ctx.selection,
